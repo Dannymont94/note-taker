@@ -1,16 +1,21 @@
 const router = require('express').Router();
-const { db } = require('../../data/db.json');
 const uuid = require('uuid');
+const { notes } = require('../../data/db.json');
+const { validateNote } = require('../../lib/notes');
 
 // create GET /api/notes route to read db.json and return all saved notes as JSON
 router.get('/notes', (req, res) => {
-  res.json(db);
+  res.json(notes);
 });
 
 // create POST /api/notes route to recieve a new note to save on the request body, add it to the db.json file, and then return the new note to the client.
 router.post('/notes', (req, res) => {
   req.body.id = uuid.v4();
-  res.send(req.body);
+  
+  if (!validateNote(req.body)) {
+    res.status(400).send('Please make sure your note has a title and body text before saving.');
+  } else {
+    
 });  
 // need to give each note a unique id when it's saved
 
