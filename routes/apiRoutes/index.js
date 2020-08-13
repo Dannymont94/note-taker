@@ -31,7 +31,7 @@ router.delete('/notes/:id', (req, res) => {
   } else {
     newNotes = notes.filter(note => note.id !== req.params.id);
     deleteNote(newNotes);
-    return res.json;
+    res.json('Your note has been deleted.');
   }
 });
 
