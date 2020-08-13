@@ -30,8 +30,8 @@ router.delete('/notes/:id', (req, res) => {
     res.status(400).send('There is no note with that id.');
   } else {
     newNotes = notes.filter(note => note.id !== req.params.id);
-    deleteNote(newNotes)
-    return res.json
+    deleteNote(newNotes);
+    return res.json;
   }
 });
 
