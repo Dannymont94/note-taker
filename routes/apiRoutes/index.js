@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const uuid = require('uuid');
 const { notes } = require('../../data/db.json');
-const { validateNote, createNewNote } = require('../../lib/notes');
+const { validateNote, createNewNote, deleteNote } = require('../../lib/notes');
 
 // create GET /api/notes route to read db.json and return all saved notes as JSON
 router.get('/notes', (req, res) => {
@@ -23,5 +23,16 @@ router.post('/notes', (req, res) => {
 
 // BONUS: create DELETE api/notes/:id route containing the id of a note to delete. Will need to read all notes from the db.json file, 
   // remove the note with the given id property, and then rewrite the notes to the db.json file.
+router.delete('/notes/:id', (req, res) => {
+  const result = notes.find(note => note.id === req.params.id);
+  
+  if (!result) {
+    res.status(400).send('There is no note with that id.');
+  } else {
+    newNotes = notes.filter(note => note.id !== req.params.id);
+    deleteNote(newNotes)
+    return res.json
+  }
+});
 
 module.exports = router;
