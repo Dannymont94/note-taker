@@ -1,31 +1,30 @@
-# note-taker
+# Note Taker
 
-GIVEN a note-taking application
-WHEN I open the Note Taker
-THEN I am presented with a landing page with a link to a notes page
-WHEN I click on the link to the notes page
-THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
-WHEN I enter a new note title and the note’s text
-THEN a Save icon appears in the navigation at the top of the page
-WHEN I click on the Save icon
-THEN the new note I have entered is saved and appears in the left-hand column with the other existing notes
-WHEN I click on an existing note in the list in the left-hand column
-THEN that note appears in the right-hand column
-WHEN I click on the Write icon in the navigation at the top of the page
-THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Description
+Note Taker is an application built with Express that stores your notes server-side instead of client-side. This means that your notes will persist no matter what device Note Taker is accessed from. Write down your grocery list from home and check it on your phone while at the store!
 
+## Table of Contents
+* [Deployed Application](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
+* [Questions](#questions)
 
-The application should have a db.json file on the back end that will be used to store and retrieve notes using the fs module.
+## Deployed Application
+https://nameless-shore-77394.herokuapp.com
 
-The following HTML routes should be created:
+## Usage
+Click the pencil in the top right to start a new note. Then enter a title and some text to make the save icon appear. Click the save icon to store your note. Once your note has been saved, you can click on it from the list on the left to bring up its contents. Once you're done with a note, you can click the red trash can icon to permanently delete it.
 
-GET /notes should return the notes.html file.
+## Credits
+Created by Daniel Monterrosa.
 
-GET / should return the index.html file.
+Powered by [Express](https://www.npmjs.com/package/express) and [UUID](https://www.npmjs.com/package/uuid).
 
-The following API routes should be created:
+## License
+Note Taker is licensed under the MIT License.
 
-GET /api/notes should read the db.json file and return all saved notes as JSON.
-
-POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
+## Questions
+Please reach out to me with any questions by connecting with me on [GitHub](https://github.com/Dannymont94) or sending an email to dannym94@gmail.com.
